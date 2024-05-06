@@ -13,7 +13,7 @@ using UnityEngine.XR.Management;
 using UnityEngine.XR.OpenXR;
 using Unity.XR.OpenVR;
 using UnityEngine.XR;
-//using BunnyModTest4.VRCamera;
+using BunnyModTest4.VRCamera;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
@@ -129,9 +129,9 @@ namespace BunnyModTest2
             // Detects a single mode scene and starts VR control of the scene.
             if (mode == LoadSceneMode.Single || scene.name == "TitleScene")
             {
-                //gameObject = new GameObject($"{nameof(GetActiveCamera)}{scene.name}");
-                //gameObject.AddComponent<GetActiveCamera>();
-                //DontDestroyOnLoad(gameObject);
+                gameObject = new GameObject($"{nameof(GetActiveCamera)}{scene.name}");
+                gameObject.AddComponent<GetActiveCamera>();
+                DontDestroyOnLoad(gameObject);
             }
         }
     }
