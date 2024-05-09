@@ -38,6 +38,8 @@ namespace BunnyModTest2
         public static List<UnityEngine.XR.XRDisplaySubsystem> displays = new List<UnityEngine.XR.XRDisplaySubsystem>();
         public static UnityEngine.XR.XRDisplaySubsystem MyDisplay = null;
 
+
+        public static Camera MainCamera = null;
         public static GameObject SecondEye = null;
         public static Camera SecondCam = null;
 
@@ -125,7 +127,7 @@ namespace BunnyModTest2
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameObject gameObject;
-            Logger.LogInfo("afkaslkfjaskldfklasjfklasOnSceneLoaded: " + scene.name + " " + mode);
+            Logger.LogInfo("OnSceneLoaded: " + scene.name + " " + mode);
             // Detects a single mode scene and starts VR control of the scene.
             if (mode == LoadSceneMode.Single || scene.name == "TitleScene")
             {

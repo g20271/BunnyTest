@@ -7,6 +7,7 @@ using BepInEx;
 using HarmonyLib;
 using BunnyModTest2;
 using Valve.VR;
+using UnityEngine.Rendering;
 
 namespace BunnyModTest4.VRCamera
 {
@@ -17,14 +18,14 @@ namespace BunnyModTest4.VRCamera
         public Camera beforeCamera;
         private void Start()
         {
-            Debug.Log("GetActiveCamera Startaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            Debug.Log("GetActiveCamera Start");
             // カメラ描画イベントを購読する
-            RenderPipelineManager.beginCameraRendering += WriteLogMessage;
+            RenderPipelineManager.endCameraRendering += WriteLogMessage;
         }
         private void OnDisable()
         {
             // カメラ描画イベントを解除する
-            RenderPipelineManager.beginCameraRendering -= WriteLogMessage;
+            RenderPipelineManager.endCameraRendering -= WriteLogMessage;
         }
 
         void WriteLogMessage(ScriptableRenderContext context, Camera camera)
@@ -35,28 +36,32 @@ namespace BunnyModTest4.VRCamera
 
                 // 最新の描画用カメラとして登録する
                 _currentCamera = camera;
+                Plugin.MainCamera = _currentCamera;
             }
 
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             // 最後に描画したカメラを表示する
             //Debug.Log("_currentCamera : " + _currentCamera);
 
             if (_currentCamera != null && beforeCamera == null)
             {
+                Debug.Log(_currentCamera.gameObject.name);
                 //Without this there is no headtracking
                 _currentCamera.gameObject.AddComponent<SteamVR_TrackedObject>();
                 Logs.WriteInfo("SteamVR_TrackedObject ok started");
 
-                Plugin.SecondEye = new GameObject("SecondEye");
-                Plugin.SecondCam = Plugin.SecondEye.AddComponent<Camera>();
-                Plugin.SecondCam.gameObject.AddComponent<SteamVR_TrackedObject>();
-                Plugin.SecondCam.CopyFrom(_currentCamera);
+                //Plugin.SecondEye = new GameObject("SecondEye");
+                //Plugin.SecondCam = Plugin.SecondEye.AddComponent<Camera>();
+                //Plugin.SecondCam.gameObject.AddComponent<SteamVR_TrackedObject>();
+                //Plugin.SecondCam.CopyFrom(_currentCamera);
 
-                // Without this the right eye gets stuck at a very far point in the map
-                Plugin.SecondCam.transform.parent = _currentCamera.transform.parent;
+                //// Without this the right eye gets stuck at a very far point in the map
+                //Plugin.SecondCam.transform.parent = _currentCamera.transform.parent;
+
+                Debug.Log(_currentCamera.gameObject.name);
 
 
                 beforeCamera = _currentCamera;
@@ -65,8 +70,8 @@ namespace BunnyModTest4.VRCamera
             {
                 Destroy(beforeCamera.gameObject.GetComponent<SteamVR_TrackedObject>());
                 _currentCamera.gameObject.AddComponent<SteamVR_TrackedObject>();
-                Plugin.SecondCam.transform.parent = _currentCamera.transform.parent;
-                Debug.Log("New Changed beforeCamera : " + beforeCamera);
+                //Plugin.SecondCam.transform.parent = _currentCamera.transform.parent;
+                //Debug.Log("New Changed beforeCamera : " + beforeCamera);
 
                 beforeCamera = _currentCamera;
             }
@@ -74,7 +79,7 @@ namespace BunnyModTest4.VRCamera
         }
         private void OnDestroy()
         {
-            Debug.Log("GetActiveCamera OnDestroyjdsfjkasfkladshfjkladshfjkadshfjkadshfjkasdhfkjladshfkljsadklfjsadkl;fjasdkl;jfkl;dsjl");
+            Debug.Log("GetActiveCamera OnDestroy");
         }
     }
 

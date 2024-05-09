@@ -17,7 +17,7 @@
 //    internal class CameraPatches
 //    {
 //        [HarmonyPostfix]
-//        [HarmonyPatch(typeof(GB.Scene.TitleScene), nameof(GB.Scene.TitleScene.Start))]
+//        [HarmonyPatch(typeof(GB.Scene.BarScene), nameof(GB.Scene.BarScene.PlayBGM))]
 //        private static void OnCameraRigEnabled()
 //        {
 //            Logs.WriteInfo("CameraRig OnEnable started");
@@ -25,30 +25,31 @@
 //            //CameraManager.ReduceNearClipping();
 //            GameObject mainCamObj;
 //            //mainCamObj = Camera.current.gameObject;
-//            mainCamObj = null;
-//            if (mainCamObj == null)
-//            {
-//                Logs.WriteInfo("Main Camera not found");
-//                if (GameObject.Find("MainCamera") != null)
-//                {
-//                    Logs.WriteInfo("MainCamera found");
-//                    mainCamObj = GameObject.Find("MainCamera");
-//                }
-//                else
-//                {
-//                    Logs.WriteInfo("MainCamera not found");
-//                    if (GameObject.Find("GameCamera") != null)
-//                    {
-//                        Logs.WriteInfo("GameCamera found");
-//                        mainCamObj = GameObject.Find("GameCamera");
-//                    }
-//                    else
-//                    {
-//                        Logs.WriteInfo("GameCamera not found");
-//                        return;
-//                    }
-//                }
-//            }
+//            //mainCamObj = null;
+//            //if (mainCamObj == null)
+//            //{
+//            //    Logs.WriteInfo("Main Camera not found");
+//            //    if (GameObject.Find("MainCamera") != null)
+//            //    {
+//            //        Logs.WriteInfo("MainCamera found");
+//            //        mainCamObj = GameObject.Find("MainCamera");
+//            //    }
+//            //    else
+//            //    {
+//            //        Logs.WriteInfo("MainCamera not found");
+//            //        if (GameObject.Find("GameCamera") != null)
+//            //        {
+//            //            Logs.WriteInfo("GameCamera found");
+//            //            mainCamObj = GameObject.Find("GameCamera");
+//            //        }
+//            //        else
+//            //        {
+//            //            Logs.WriteInfo("GameCamera not found");
+//            //            return;
+//            //        }
+//            //    }
+//            //
+//            mainCamObj = Plugin.MainCamera.gameObject;
 
 //            //Without this there is no headtracking
 //            mainCamObj.AddComponent<SteamVR_TrackedObject>();

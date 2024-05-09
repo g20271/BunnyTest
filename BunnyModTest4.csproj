@@ -30,6 +30,9 @@
     <Reference Include="SteamVR_Actions">
       <HintPath>Libs\Managed\SteamVR_Actions.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>D:\SteamLibrary\steamapps\common\BUNNY GARDEN\BUNNY GARDEN_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.XR.Management">
       <HintPath>Libs\Managed\Unity.XR.Management.dll</HintPath>
     </Reference>
