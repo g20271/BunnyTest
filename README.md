@@ -28,4 +28,7 @@
 # 参考
 https://www.youtube.com/watch?v=qT-V59Yw6UY6  
 https://github.com/toydev/HC_VRTrial  
-何もわからない初心者でもわかりやすかったのでめちゃくちゃ感謝…
+何もわからない初心者でもわかりやすかったのでめちゃくちゃ感謝…  
+  
+https://twitter.com/IKA_9nt/status/1786097467223859458  
+先駆者の方。UIの表示方法どうやってるんだろう…?
