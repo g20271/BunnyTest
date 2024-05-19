@@ -1,5 +1,24 @@
-# 現状ほぼ動きません 知識も時間もないので対応できません
-## 楽しくうさぎさんと会話するゲームのVRMod  
+# 知識も時間もないので対応できません
+## 完全自分用 バニーガーデン VRMod  
+
+### インストール方法
+1. **BepInEx 6の取得**
+   - Mono版のBepInEx 6を入手します。他のバニーガーデンModと同様の方法で行えます。
+   - Nexus Modsにある他のバニーガーデンModとの併用も可能です。
+
+2. **ファイルのダウンロード**
+   - Releaseから最新のdllファイルとBUNNY GARDEN_Data.zipをダウンロードします。
+
+3. **ファイルの配置**
+   - ダウンロードしたdllファイルをBepInEx/pluginsフォルダにコピーします。
+   - BUNNY GARDEN_Data.zipを展開し、その中身をBUNNY GARDEN_Dataフォルダに配置します。
+
+### 注意点
+ - VRでは好ましくないカメラ位置になることがたまにあります。OVR Advanced SettingsのSpace Dragで移動をお勧めします。
+ - Canvasで書かれているUI表示に非対応です。ゲーム操作できないのでXSOverlayやDesktop+での操作必須です。
+   - おすすめはDesktop+で腕にゲーム画面、正面に会話ウィンドウのみトリミングしたウィンドウを配置すると没入できるのでよいです。
+
+### ビルド
 .NET デスクトップ開発をインストールしてあるVisual Studioからビルドできます。
 一応リリースにビルド済みのものを置いています。
 
@@ -10,3 +29,7 @@
 # 参考
 https://www.youtube.com/watch?v=qT-V59Yw6UY6  
 https://github.com/toydev/HC_VRTrial  
+何もわからない初心者でもわかりやすかったのでめちゃくちゃ感謝…  
+  
+https://twitter.com/IKA_9nt/status/1786097467223859458  
+先駆者の方。UIの表示方法どうやってるんだろう…?
